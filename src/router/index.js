@@ -7,8 +7,9 @@ import MainPage from '@/pages/MainPage.vue'
 import Products_Tab1 from '@/components/Products_Tab1.vue'
 import Products_Tab2 from '@/components/Products_Tab2.vue'
 import Products_Tab3 from '@/components/Products_Tab3.vue'
-// import ProductList from '@/components/ProductProducts_Tab1.vue'
-
+import Product1_Card from '@/pages/Product1_Card.vue'
+import Product2_Card from '@/pages/Product2_Card.vue'
+import Product3_Card from '@/pages/Product3_Card.vue'
 
 Vue.use(VueRouter) // Сообщаем Vue, что будем использовать vue-router
 
@@ -36,17 +37,17 @@ const routes = [ // Создаём маршруты (в виде объекто�
   {
     path: '/product1', // путь в адресной строке
     name: 'product1', // ключевое название страницы
-    component: () => import('@/pages/Product1_Card.vue') // компонент для отрисовки
+    component: Product1_Card,
   },
   {
     path: '/product2',
     name: 'product2',
-    component: () => import('@/pages/Product2_Card.vue')
+    component: Product2_Card,
   },
   {
     path: '/product3',
     name: 'product3',
-    component: () => import('@/pages/Product3_Card.vue')
+    component: Product3_Card,
   },
   {
     path: '*', // путь в адресной строке

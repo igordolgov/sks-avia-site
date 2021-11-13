@@ -2,7 +2,7 @@
 	<v-card class="bg-main">
 		<v-card-text class="pa-4">
 			<v-row class="tab-height">
-				<v-col>
+				<v-col class="black--text">
           <v-container class="pa-0">
             <h1 class="text-h5 font-weight-bold mb-2">
               Приветствуем Вас на нашем сайте!

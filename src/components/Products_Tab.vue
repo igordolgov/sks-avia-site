@@ -14,7 +14,7 @@
 						<v-card
 							href="#" @click.prevent="gotoPage(pageToGo, {id: product.id})"
 							:elevation="hover ? 16 : 4"
-							width="auto" min-height="188px" class="ma-4 pt-2 pb-1 rounded-lg"
+							width="auto" min-height="188px" class="asd ma-4 pt-2 pb-1 rounded-lg"
 						>
 							<!-- При клике на карточку товара вызываем локальный метод "gotoPage"
 							и передаём в него название страницы и доп. параметры для страницы -->

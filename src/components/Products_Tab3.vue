@@ -13,7 +13,7 @@
 					<v-hover v-slot="{ hover }"> <!-- Эффект при наведении на карточку -->
 						<v-card
 							href="#" @click.prevent="gotoPage('product3', {id: product.id})"
-							:elevation="hover ? 16 : 2"
+							:elevation="hover ? 16 : 6"
 							width="auto" min-height="188px" class="pt-2 pb-1 rounded-lg"
 						>
 							<!-- При клике на карточку товара вызываем локальный метод "gotoPage"

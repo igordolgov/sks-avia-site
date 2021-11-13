@@ -2,7 +2,7 @@
 	<v-app>
 		<Header />
 
-		<v-main class="bg-main">
+		<v-main fill-height class="bg-main">
 			<v-container>
 				<!-- "component" - специальный тег во Vue.js, который позволяет отображать
 				любой компонент динамически (в свойстве ":is" передаём название компонента).
@@ -96,7 +96,8 @@ export default {
 
 <style scoped>
 	.bg-main {
-		background-image: url("https://igordolgov.github.io/sks/img/background-main.jpg");
+		background-color: rgb(48, 65, 77);
+		/* background-image: url("https://igordolgov.github.io/sks/img/background-main.jpg"); */
 		background-size: cover;
 		background-repeat: no-repeat;
 	}

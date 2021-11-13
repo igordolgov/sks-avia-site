@@ -1,7 +1,7 @@
 <!-- "Шапка" сайта, верхняя часть -->
 <template>
 	<div>
-		<v-app-bar dark dense class="primary elevation-10">
+		<v-app-bar dark dense class="elevation-8" style="background-color:#006699">
 			<v-img
 				src="img/logo-sks-white.png" class="mr-2" 
 				style="background-size:cover; background-position:center center; max-width:55px; height:auto">
@@ -13,11 +13,11 @@
 			
 			<v-btn
 				class="
-					hidden-xs-only 
-					primary lighten-0 
+					hidden-xs-only
 					mr-3 py-0 
 					elevation-20
 					rounded-xl"
+				style="background-color:#0075b0"
 				
 				v-for="item in menuItems"
 				:href="item.adress"

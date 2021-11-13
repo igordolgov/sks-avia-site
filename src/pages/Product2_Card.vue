@@ -16,7 +16,7 @@
         <v-col cols="12">
           <v-card
             align="center"
-            class="elevation-16 ma-auto"
+            class="elevation-16 ma-auto rounded-lg"
             max-width="450px"
           >
             <v-card-title
