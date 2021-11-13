@@ -1,29 +1,30 @@
 <template>
-  <v-app app>
-    <Header />
+	<v-card class="bg-main">
+		<v-card-text class="pa-4">
+			<v-row class="tab-height">
+				<v-col>
+          <v-container class="pa-0">
+            <h1 class="text-h5 font-weight-bold mb-2">
+              Приветствуем Вас на нашем сайте!
+            </h1>
+            <v-divider class="mb-1" />
+            <p class="text-subtitle-1 font-italic">Надеемся, что Вы найдёте то, что искали</p>
 
-    <v-main class="bg-main">
-      <v-container class="pa-0">
-        <ProductList @gotoPage="(pageName, pageParams) => $emit('gotoPage', pageName, pageParams)" />
-      </v-container>
-    </v-main>
-
-    <Footer />
-  </v-app>
+            <v-img src="https://postervdom.ru/upload/shop_3/2/1/0/item_2105/item_2105.jpg"></v-img>
+          </v-container>
+        </v-col>
+      </v-row>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
-import Header from "@/components/Header"
-import ProductList from "@/components/ProductList"
-import Footer from "@/components/Footer"
 
 export default {
   name: 'MainPage',
 
   components: {
-    Header,
-    ProductList,
-    Footer,
+
   },
 
   data: () => ({
@@ -49,9 +50,5 @@ export default {
 </script>
 
 <style scoped>
-.bg-main {
-  background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1614424086_36-p-temnii-fon-dlya-intro-45.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 </style>

@@ -1,9 +1,7 @@
 <!-- "Шапка" сайта, верхняя часть -->
 <template>
 	<div>
-		<v-app-bar app dark dense class="primary elevation-10">
-			<!-- <div aria-label="VuLogo" role="img" class="v-image v-responsive shrink theme--light" style="min-width:34px;max-width:34px;"><div class="v-responsive__sizer" style="padding-bottom: 114.244%;"></div><div class="v-image__image v-image__image--cover" style="background-image: url(img/logo-sks.svg); background-position: center center;"></div><div class="v-responsive__content" style="width: 344px;"></div></div> -->
-
+		<v-app-bar dark dense class="primary elevation-10">
 			<v-img
 				src="img/logo-sks-white.png" class="mr-2" 
 				style="background-size:cover; background-position:center center; max-width:55px; height:auto">

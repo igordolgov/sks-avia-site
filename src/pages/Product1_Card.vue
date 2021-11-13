@@ -1,77 +1,69 @@
 <!-- Карточка товара из 1-й вкладки -->
 <template>
-  <v-app app>
-    <Header />
+  <div>
+    <div class="text-right back-button">
+      <v-btn
+        href="/sks-avia/" @click.prevent="gotoPage('main')"
+        color="red accent-4" dark
+        class="rounded-xl elevation-10"
+      >
+        Назад
+      </v-btn>
+    </div>
 
-    <v-main relative class="bg-main grey lighten-2">
-      <div class="text-right back-button">
-        <v-btn
-          href="main" @click.prevent="gotoPage('main')"
-          color="red accent-4" dark
-          class="rounded-xl elevation-10"
-        >
-          Назад
-        </v-btn>
-      </div>
-
-      <v-container>
-        <v-row>
-          <v-col cols="12">
-            <v-card
-              align="center"
-              class="ma-0 elevation-16 rounded-lg"
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <v-card
+            align="center"
+            class="ma-0 elevation-16 rounded-lg"
+          >
+            <v-card-title
+              dark
+              class="grey darken-2 white--text py-1"
             >
-              <v-card-title
-                dark
-                class="grey darken-2 white--text py-1"
-              >
-                <span class="mx-auto">{{ product.title }}</span>
-              </v-card-title>
-              
-              <v-card-text class="pa-0">
-                <span
-                  class="font-weight-black
-                        text-h6 text-uppercase red--text">
-                  {{ product.condition }}
-                  <span class="font-weight-bold text-subtitle-1"></span>
-                </span>
+              <span class="mx-auto">{{ product.title }}</span>
+            </v-card-title>
+            
+            <v-card-text class="pa-0">
+              <span
+                class="font-weight-black
+                      text-h6 text-uppercase red--text">
+                {{ product.condition }}
+                <span class="font-weight-bold text-subtitle-1"></span>
+              </span>
 
-                <span
-                  class="font-weight-bold text-h5 black--text">
-                  - Цена: {{ product.price }}
-                  <span class="font-weight-bold text-subtitle-1">₽</span>
-                </span>
-              </v-card-text>
+              <span
+                class="font-weight-bold text-h5 black--text">
+                - Цена: {{ product.price }}
+                <span class="font-weight-bold text-subtitle-1">₽</span>
+              </span>
+            </v-card-text>
 
-              <v-card-text
-                class="grey darken-3 text-subtitle-1 
-                       font-weight-light white--text py-0">
-                {{ product.description }}
-              </v-card-text>
+            <v-card-text
+              class="grey darken-3 text-subtitle-1 
+                      font-weight-light white--text py-0">
+              {{ product.description }}
+            </v-card-text>
 
-              <v-img :src="product.image1" contain class="card-img"></v-img>
-              <v-img :src="product.image2" contain class="card-img"></v-img>
-              <v-img :src="product.image3" contain class="card-img"></v-img>
-              <v-img :src="product.image4" contain class="card-img"></v-img>
-              <v-img :src="product.image5" contain class="card-img"></v-img>
-              <v-img :src="product.image6" contain class="card-img"></v-img>
-              <v-img :src="product.image7" contain class="card-img"></v-img>
-              <v-img :src="product.image8" contain class="card-img"></v-img>
-              <v-img :src="product.image9" contain class="card-img"></v-img>
-              <v-img :src="product.image10" contain class="card-img"></v-img>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-
-    <Footer />
-  </v-app>
+            <v-img :src="product.image1" contain class="card-img"></v-img>
+            <v-img :src="product.image2" contain class="card-img"></v-img>
+            <v-img :src="product.image3" contain class="card-img"></v-img>
+            <v-img :src="product.image4" contain class="card-img"></v-img>
+            <v-img :src="product.image5" contain class="card-img"></v-img>
+            <v-img :src="product.image6" contain class="card-img"></v-img>
+            <v-img :src="product.image7" contain class="card-img"></v-img>
+            <v-img :src="product.image8" contain class="card-img"></v-img>
+            <v-img :src="product.image9" contain class="card-img"></v-img>
+            <v-img :src="product.image10" contain class="card-img"></v-img>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
 // Импортируем справочник товаров (в переменную 'products')
 import products from "@/data/products.js"
 // Импортируем справочник категорий товаров (в переменную 'products')
@@ -83,7 +75,8 @@ export default {
 
   props: ['pageParams'],
 
-  components: { Header, Footer, },
+  components: { 
+  },
 
   computed: {
     // Информация о товаре

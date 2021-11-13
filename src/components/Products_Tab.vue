@@ -1,4 +1,4 @@
-﻿<!-- Список товаров 1-й вкладки -->
+<!-- Список товаров 1-й вкладки -->
 <template>
 	<v-card>
 		<v-card-text class="pa-4">
@@ -7,14 +7,14 @@
 				md="3" - на ноутбуках ширина карточки 3 из 12
 				sm - планшет, md - ноутбук, md - настольный, lg - широкий экран -->
 				<v-col
-					cols="12" sm="4" md="3" lg="3" xl="3" class="text-center pa-2"
+					cols="12" sm="4" md="3" lg="3" xl="3" class="text-center pa-1"
 					v-for="product in products" :key="product.id"
 				>
 					<v-hover v-slot="{ hover }"> <!-- Эффект при наведении на карточку -->
 						<v-card
-							href="#" @click.prevent="gotoPage('product1', {id: product.id})"
-							:elevation="hover ? 16 : 2"
-							width="auto" min-height="188px" class="pt-2 pb-1 rounded-lg"
+							href="#" @click.prevent="gotoPage(pageToGo, {id: product.id})"
+							:elevation="hover ? 16 : 4"
+							width="auto" min-height="188px" class="ma-4 pt-2 pb-1 rounded-lg"
 						>
 							<!-- При клике на карточку товара вызываем локальный метод "gotoPage"
 							и передаём в него название страницы и доп. параметры для страницы -->
@@ -50,9 +50,10 @@ import products from '@/data/products.js';
 import eventBus from '@/eventBus';
 
 export default {
-	name: 'Products_Tab1',
+	name: 'Products_Tab',
 	data: () => ({
 		products: products.tab1,
+		pageToGo: 'product1',
 	}),
 
 	methods: {

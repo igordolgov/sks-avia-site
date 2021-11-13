@@ -1,6 +1,6 @@
 <template>
   <v-app app>
-    <Header />
+    <!-- <Header /> -->
 
     <v-main class="bg-main">
       <v-container class="pa-0">
@@ -8,18 +8,16 @@
       </v-container>
     </v-main>
 
-    <Footer />
+    <!-- <Footer /> -->
   </v-app>
 </template>
 
 <script>
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-
 export default {
   name: 'NotFoundPage',
 
-  components: { Header, Footer },
+  components: { 
+  },
 
   data: () => ({
     

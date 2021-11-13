@@ -7,7 +7,7 @@
 				md="3" - на ноутбуках ширина карточки 3 из 12
 				sm - планшет, md - ноутбук, md - настольный, lg - широкий экран -->
 				<v-col
-					cols="12" sm="4" md="3" lg="3" xl="3" class="text-center pa-1 "
+					cols="12" sm="4" md="3" lg="3" xl="3" class="text-center pa-2"
 					v-for="product in products" :key="product.id"
 				>
 					<v-hover v-slot="{ hover }"> <!-- Эффект при наведении на карточку -->

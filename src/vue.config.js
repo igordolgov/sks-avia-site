@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/sks/',
+    publicPath: '/sks-avia/',
 }
