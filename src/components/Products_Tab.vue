@@ -52,7 +52,7 @@ import eventBus from '@/eventBus';
 export default {
 	name: 'Products_Tab',
 	data: () => ({
-		products: products.tab1,
+		products: products.motors,
 		pageToGo: 'product1',
 	}),
 

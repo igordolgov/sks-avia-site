@@ -71,7 +71,7 @@ import categories from "@/data/categories.js"
 import eventBus from '@/eventBus';
 
 export default {
-  name: 'Product1_Card',
+  name: 'Tab1_Cards',
 
   props: ['pageParams'],
 
@@ -83,7 +83,7 @@ export default {
     product() {
       // Фильтруем список товаров и оставляем тот товар, который просматриваем,
       // то есть у которого id совпадает с id переданным через входные параметры
-      return products.tab1.find(product => product.id === this.pageParams.id)
+      return products.motors.find(product => product.id === this.pageParams.id)
     },
     category() {
       // Фильтруем список категорий и оставляем ту, у которой идентификатор (id)

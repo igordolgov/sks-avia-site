@@ -10,7 +10,7 @@
 					to="/" block
 					class='font-weight-bold text-caption text-sm-body-2
 					text-center	pa-2 mt-1 mb-3 mb-2 rounded-lg elevation-6'
-					active-class='primary darken-2'>
+					active-class='grey darken-3 white--text'>
 					Главная
 				</v-btn>
 
@@ -23,7 +23,7 @@
 					v-for='tab in tabs' :key='tab'
 					class='font-weight-bold text-center text-caption 
 					text-sm-body-2 rounded-lg pa-2 mb-2 elevation-6'
-					active-class='primary darken-2'
+					active-class='grey darken-3 white--text'
 				>
 					{{ tab.title }}
 				</v-btn> 
@@ -38,7 +38,7 @@
 
 <script>
 export default {
-	name: 'ProductList',
+	name: 'MainLayout',
 
 	components: { 
 		// Products_Tab1, Products_Tab2, Products_Tab3, 
@@ -49,15 +49,15 @@ export default {
 		tabs: [
 			{
 				title: 'Моторы',
-				route: '/tab1'
+				route: '/motors'
 			}, 
 			{
 				title: 'Пропеллеры',
-				route: '/tab2'
+				route: '/propellers'
 			}, 
 			{
 				title: 'Стартеры',
-				route: '/tab3'
+				route: '/starters'
 			}, 
 		],
 	}),

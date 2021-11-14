@@ -1,7 +1,8 @@
 <!-- "Шапка" сайта, верхняя часть -->
 <template>
 	<div>
-		<v-app-bar dark dense class="elevation-8" style="background-color:#006699">
+		<!-- v-app-bar - аналог <header> в html. Обязательно должен иметь аттрибут app -->
+		<v-app-bar app fixed dark dense class="elevation-8" style="background-color:#006699">
 			<v-img
 				src="img/logo-sks-white.png" class="mr-2" 
 				style="background-size:cover; background-position:center center; max-width:55px; height:auto">
@@ -12,11 +13,7 @@
 			<v-spacer></v-spacer>
 			
 			<v-btn
-				class="
-					hidden-xs-only
-					mr-3 py-0 
-					elevation-20
-					rounded-xl"
+				class="hidden-xs-only mr-3 py-0 elevation-20 rounded-xl"
 				style="background-color:#0075b0"
 				
 				v-for="item in menuItems"
@@ -31,9 +28,7 @@
 		</v-app-bar>
 
 		<v-navigation-drawer
-			v-model="drawer" 
-			temporary fixed 
-			width=auto
+			v-model="drawer" temporary fixed width=auto
 		>
 			<v-list nav dense>
 				<v-list-item-group v-model="group" active-class="text--accent-4">
@@ -52,6 +47,7 @@
 
 <script>
 export default {
+	name: 'AppHeader',
 	data: () => ({
 		drawer: false, // Отображение или скрытие мобильного меню
 		group: null,

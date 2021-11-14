@@ -1,8 +1,8 @@
 <template> <!-- Разметка. Что и как отображать на странице -->
 	<v-app>
-		<Header />
+		<AppHeader />
 
-		<v-main fill-height class="bg-main">
+		<v-main class="grey darken-3">
 			<v-container>
 				<!-- "component" - специальный тег во Vue.js, который позволяет отображать
 				любой компонент динамически (в свойстве ":is" передаём название компонента).
@@ -24,11 +24,11 @@ import eventBus from '@/eventBus';
 // Импортируем компоненты (страницы) для возможности использования в текущем компоненте.
 // Символ "@" означает "путь до папки 'src'"
 import MainPage from "@/pages/MainPage" // Главная страница. С неё запускается сайт
-import Header from "@/components/Header"
-import ProductList from "@/components/ProductList"
-import Product1_Card from "@/pages/Product1_Card" // Карточка товара из 1-й вкладки
-import Product2_Card from "@/pages/Product2_Card" // Карточка товара из 2-й вкладки
-import Product3_Card from "@/pages/Product3_Card" // Карточка товара из 2-й вкладки
+import AppHeader from "@/components/AppHeader"
+import MainLayout from "@/pages/MainLayout"
+import Tab1_Cards from "@/components/Tab1_Cards" // Карточка товара из 1-й вкладки
+import Tab2_Cards from "@/components/Tab2_Cards" // Карточка товара из 2-й вкладки
+import Tab3_Cards from "@/components/Tab3_Cards" // Карточка товара из 2-й вкладки
 import Products_Tab1 from "@/components/Products_Tab1" // Список всех товаров 1-й вкладки
 import Products_Tab2 from "@/components/Products_Tab2" // Список всех товаров 2-й вкладки
 import Products_Tab3 from "@/components/Products_Tab3" // Список всех товаров 2-й вкладки
@@ -37,13 +37,13 @@ import NotFoundPage from "@/pages/NotFoundPage" // Страница ошибки
 // Маршруты до страниц. Это объект, где ключ - название страницы, значение - компонент,
 // который должен отобразиться при переходе на эту страницу
 const routes = {
-	main: 'ProductList',
-	product1: 'Product1_Card',
-	product2: 'Product2_Card',
-	product3: 'Product3_Card',
-	tab1: 'Products_Tab1',
-	tab2: 'Products_Tab2',
-	tab3: 'Products_Tab3',
+	main: 'MainLayout',
+	product1: 'Tab1_Cards',
+	product2: 'Tab2_Cards',
+	product3: 'Tab3_Cards',
+	motors: 'Products_Tab1',
+	propellers: 'Products_Tab2',
+	starters: 'Products_Tab3',
 }
 
 export default {
@@ -52,12 +52,12 @@ export default {
 
 	// Указываем, какие компоненты использовать
 	components: {
-		Header,
+		AppHeader,
 		MainPage, 
-		ProductList,
-		Product1_Card, 
-		Product2_Card, 
-		Product3_Card, 
+		MainLayout,
+		Tab1_Cards, 
+		Tab2_Cards, 
+		Tab3_Cards, 
 		NotFoundPage, 
 		Products_Tab1, 
 		Products_Tab2, 
@@ -95,10 +95,10 @@ export default {
 </script>
 
 <style scoped>
-	.bg-main {
-		background-color: rgb(48, 65, 77);
+	/* .bg-main { */
+		/* background-color: rgb(61, 65, 71); */
 		/* background-image: url("https://igordolgov.github.io/sks/img/background-main.jpg"); */
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
+		/* background-size: cover;
+		background-repeat: no-repeat; */
+	/* } */
 </style>

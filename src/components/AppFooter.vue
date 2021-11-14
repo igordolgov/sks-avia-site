@@ -32,7 +32,7 @@
 // import Products from '@/components/Products'
 
 export default {
-	name: 'Footer',
+	name: 'AppFooter',
 	data: () => ({
 		icons: [
 			'mdi-facebook',

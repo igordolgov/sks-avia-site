@@ -1,5 +1,5 @@
 <template>
-	<v-card class="bg-main">
+	<v-card>
 		<v-card-text class="pa-4">
 			<v-row class="tab-height">
 				<v-col class="black--text">

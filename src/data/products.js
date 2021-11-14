@@ -1,8 +1,8 @@
-export default {
-  tab1: [ // МОТОРЫ
+﻿export default {
+  motors: [ // МОТОРЫ
     {
       id: 0,
-      title: 'Magnum 46 XLS с глушителем',
+      title: 'Magnum 46 XLS с  глушителем',
       condition: 'Новый',
       description: 'Продается все, что на фото; без упаковки',
       price: 4000,
@@ -45,7 +45,7 @@ export default {
       image10: 'img/engines/engine3-10.jpg',
     }
   ],
-  tab2: [ // ПРОПЕЛЛЕРЫ
+  propellers: [ // ПРОПЕЛЛЕРЫ
     {
       id: 0,
       title: 'APC 7x7',
@@ -92,7 +92,7 @@ export default {
       image1: 'img/propellers/propeller5-01.jpg',
     }
   ],
-  tab3: [ // СТАРТЕРЫ
+  starters: [ // СТАРТЕРЫ
     {
       id: 0,
       title: 'Anderson PM-60',

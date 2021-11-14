@@ -1,6 +1,6 @@
 <template>
   <v-app app>
-    <!-- <Header /> -->
+    <!-- <AppHeader /> -->
 
     <v-main class="bg-main">
       <v-container class="pa-0">
@@ -8,7 +8,7 @@
       </v-container>
     </v-main>
 
-    <!-- <Footer /> -->
+    <!-- <AppFooter /> -->
   </v-app>
 </template>
 
