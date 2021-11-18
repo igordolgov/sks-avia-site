@@ -1,48 +1,64 @@
 ﻿<!-- Список товаров 3-й вкладки -->
 <template>
+	<!-- Карточка в каталоге -->
 	<v-card>
-		<v-card-text class="pa-3">
+		<!-- "pa" - paddings, "ma" - margins, "pl" - padding-left, "mb" - margin-bottom... -->
+		<v-card-text class="pa-3 text-body-2" style="line-height:1.2">
 			<v-row class="tab-height background-size:contain;">
 				<!-- cols=="8" означает - по умолчанию список занимает 8 из 12
 				md="3" - на ноутбуках ширина карточки 3 из 12
 				sm - планшет, md - ноутбук, md - настольный, lg - широкий экран -->
 				<v-col
-					cols="12" sm="4" md="3" lg="3" xl="3" class="text-center pa-1"
+					cols="12" sm="4" md="3" lg="3" xl="3" class="pa-1"
 					v-for="product in products" :key="product.id"
 				>
 					<v-hover v-slot="{ hover }"> <!-- Эффект при наведении на карточку -->
+						<!-- При клике на карточку товара вызываем локальный метод "gotoPage"
+						и передаём в него название страницы и доп. параметры для страницы -->
 						<v-card
 							href="#" @click.prevent="gotoPage('product3', {id: product.id})"
-							:elevation="hover ? 16 : 6"
-							width="auto" min-height="188px" class="pa-2"
+							:elevation="hover ? 16 : 6" width="auto" min-height="188px"
+							class="pa-2"
 						>
-							<!-- При клике на карточку товара вызываем локальный метод "gotoPage"
-							и передаём в него название страницы и доп. параметры для страницы -->
-							<v-card>
+							<!-- Картинка карточки в каталоге -->
+							<v-card class="mb-1 grey lighten-2">
 								<v-img
-									cover
-									position="top center"
-									min-height="200px"
-									max-height="200px"
+									contain position="center"
+									aspect-ratio="1"
 									:src="product.image1"
 								></v-img>
 							</v-card>
 
-							<v-card elevation="6">
-								<v-card-title
-									class=" d-block white--text grey darken-1 
-									mt-2 pt-1 px-2 pb-0">
-									<h3 class="text-body-2">
-										{{ product.title }}
-									</h3>
-								</v-card-title>
+							<!-- Описание карточки в каталоге -->
+							<!-- Название товара -->
+							<v-card
+								height="3.8em" flat
+								class="d-block pt-1 px-2 pb-0
+								font-weight-bold">
+								{{ product.title }}
+							</v-card>
 
-								<v-card-text class="mx-0 pb-0">
-									<p class="black--text text-body-1 font-weight-bold mb-0">
-										{{ product.price }} 
-										<span class="font-weight-bold text-caption">₽</span>
-									</p>
-								</v-card-text>
+							<!-- Количество товара -->
+							<v-card flat v-show="product.quantity > 0" 
+								class="pl-2 pb-0 mb-0">
+								Кол-во: {{ product.quantity }} шт.
+							</v-card>
+
+							<!-- Если товара нет в наличии (кол-во: 0) -->
+							<v-card
+								flat v-show="product.quantity == 0" 
+								class="red--text pl-2 pb-0 mb-0">
+								Нет в наличии
+							</v-card>
+
+							<!-- Состояние товара (новый или б/у) -->
+							<v-card flat class="pl-2 pb-0 mb-0">
+								{{ product.condition }}
+							</v-card>
+
+							<!-- Стоимость товара -->
+							<v-card flat class="pl-2 pb-1 mb-0">
+								Цена: {{ product.price }} ₽
 							</v-card>
 						</v-card>
 					</v-hover>

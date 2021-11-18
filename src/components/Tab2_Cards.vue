@@ -1,62 +1,128 @@
-<!-- Карточка товара из 2-й вкладки -->
+<!-- Карточка товара из 1-й вкладки -->
 <template>
   <div>
-    <div class="text-right back-button">
-      <v-btn
-        href="#" @click.prevent="gotoPage('main')"
-        color="red accent-4" dark
-        class="rounded-xl elevation-10"
-      >
-        Назад
-      </v-btn>
-    </div>
+    <ButtonBack />
 
-    <v-container>
+    <v-container class="pa-0">
       <v-row>
-        <v-col cols="12">
-          <v-card
-            align="center"
-            class="elevation-16 ma-auto rounded-lg"
-            max-width="450px"
-          >
-            <v-card-title
-              dark
-              class="grey darken-2 white--text py-1"
+        <v-col cols="12" sm="8" lg="8" class="px-0 mx-sm-3">
+          <v-card class="grey lighten-3 rounded-lg elevation-10">
+            <v-carousel
+              class="mt-sm-0 cards-height" 
             >
-              <span class="mx-auto">{{ product.title }}</span>
-            </v-card-title>
-            
-            <v-card-text class="pa-0">
-              <span
-                class="font-weight-black
-                      text-h6 text-uppercase red--text">
-                {{ product.condition }}
-                <span class="font-weight-bold text-subtitle-1"></span>
-              </span>
+              <v-carousel-item
+                v-if="product.image1"
+                :src="product.image1"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
 
-              <span
-                class="font-weight-bold text-h5 black--text">
-                - Цена: {{ product.price }}
-                <span class="font-weight-bold text-subtitle-1">₽</span>
-              </span>
-            </v-card-text>
+              <v-carousel-item
+                v-if="product.image2"
+                :src="product.image2"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              
+              <v-carousel-item
+                v-if="product.image3"
+                :src="product.image3"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              
+              <v-carousel-item
+                v-if="product.image4"
+                :src="product.image4"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              
+              <v-carousel-item
+                v-if="product.image5"
+                :src="product.image5"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              
+              <v-carousel-item
+                v-if="product.image6"
+                :src="product.image6"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              <v-carousel-item
+                v-if="product.image7"
+                :src="product.image7"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              
+              <v-carousel-item
+                v-if="product.image8"
+                :src="product.image8"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              
+              <v-carousel-item
+                v-if="product.image9"
+                :src="product.image9"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+              
+              <v-carousel-item
+                v-if="product.image10"
+                :src="product.image10"
+                contain eager
+                max-height="80vh"
+              ></v-carousel-item>
+            </v-carousel>
+          </v-card>
+        </v-col>
 
-            <v-card-text
-              class="grey darken-3 text-subtitle-1 
-                      font-weight-light white--text py-0">
+        <v-col cols="12" sm="3" lg="3" class="pt-0 mt-sm-0 px-sm-1">
+          <v-card class="elevation-10 rounded-lg ma-0 ma-md-6 mr-md-0 mt-sm-6 pa-2">
+            <!-- Название товара -->
+            <v-card
+              flat
+              class="d-block pt-1 px-2 pb-0
+              font-weight-bold text-body-2 text-md-body-1">
+              {{ product.title }}
+            </v-card>
+
+            <!-- Описание товара -->
+            <v-card flat class="pl-2 pb-0 mb-0 text-body-2 text-md-body-1">
               {{ product.description }}
-            </v-card-text>
+            </v-card>
 
-            <v-img :src="product.image1" contain class="card-img"></v-img>
-            <v-img :src="product.image2" contain class="card-img"></v-img>
-            <v-img :src="product.image3" contain class="card-img"></v-img>
-            <v-img :src="product.image4" contain class="card-img"></v-img>
-            <v-img :src="product.image5" contain class="card-img"></v-img>
-            <v-img :src="product.image6" contain class="card-img"></v-img>
-            <v-img :src="product.image7" contain class="card-img"></v-img>
-            <v-img :src="product.image8" contain class="card-img"></v-img>
-            <v-img :src="product.image9" contain class="card-img"></v-img>
-            <v-img :src="product.image10" contain class="card-img"></v-img>
+            <v-col cols="6" 
+              class="text-body-1 pa-0">
+
+              <!-- Количество товара -->
+              <v-card flat v-if="product.quantity > 0" 
+                class="d-block pl-2 pb-0 mb-0 text-body-2 text-md-body-1">
+                Кол-во: {{ product.quantity }} шт.
+              </v-card>
+
+              <!-- Если товара нет в наличии (кол-во: 0) -->
+              <v-card
+                flat v-if="product.quantity == 0" 
+                class="width-50px red--text pl-2 pb-0 mb-0 text-body-2 text-md-body-1">
+                Нет в наличии
+              </v-card>
+
+              <!-- Состояние товара (новый или б/у) -->
+              <v-card flat class="pl-2 pb-0 mb-0 text-body-2 text-md-body-1">
+                {{ product.condition }}
+              </v-card>
+
+              <!-- Стоимость товара -->
+              <v-card flat class="pl-2 pb-1 mb-0 text-body-2 text-md-body-1">
+                Цена: {{ product.price }} ₽
+              </v-card>
+            </v-col>
           </v-card>
         </v-col>
       </v-row>
@@ -65,19 +131,26 @@
 </template>
 
 <script>
+import ButtonBack from '@/components/ButtonBack';
 // Импортируем справочник товаров (в переменную 'products')
 import products from "@/data/products.js"
 // Импортируем справочник категорий товаров (в переменную 'products')
 import categories from "@/data/categories.js"
-import eventBus from '@/eventBus';
+// import eventBus from '@/eventBus';
 
 export default {
-  name: 'Tab2_Cards',
+  name: 'Tab1_Cards',
 
   props: ['pageParams'],
 
-  components: { 
+  components: {
+    ButtonBack,
   },
+
+  data: () => ({
+    products: products,
+    categories: categories,
+  }),
 
   computed: {
     // Информация о товаре
@@ -92,33 +165,25 @@ export default {
       return categories.find(category => category.id === this.product.categoryId)
     },
   },
-
-  data: () => ({
-    products: products,
-    categories: categories,
-  }),
-
-  methods: {
-    // Переход по страницам
-    gotoPage(pageName) {
-      eventBus.$emit('gotoPage', pageName)
-    }
-  },
 };
-
 </script>
 
-<style>
-  .card-img {
-    margin: 8px 0;
-    max-height: 75vh;
-    max-width: 80vw;  
+<style scoped>
+  @media (min-width: 900px) {
+    .cards-height {
+      min-height: 78.4vh;
+    }
   }
 
-  .back-button {
-    position: fixed;
-    z-index: 5;
-    top: 50% !important;
-    left: 10px;
+  @media (max-width: 360px) {
+    .cards-height {
+      max-height: 60vh;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .cards-height {
+      height: 90vh;
+    }
   }
 </style>

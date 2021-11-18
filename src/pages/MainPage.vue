@@ -1,11 +1,11 @@
 <template>
 	<v-card>
 		<v-card-text class="pa-4">
-			<v-row class="tab-height">
+			<v-row class="tab-height white">
 				<v-col class="black--text">
           <v-container class="pa-0">
             <h1 class="text-h5 font-weight-bold mb-2">
-              Приветствуем Вас на нашем сайте!
+              Приветствуем всех Вас на нашем сайте!
             </h1>
             <v-divider class="mb-1" />
             <p class="text-subtitle-1 font-italic">Надеемся, что Вы найдёте то, что искали</p>

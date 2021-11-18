@@ -2,38 +2,42 @@
 <template>
 	<div>
 		<!-- v-app-bar - аналог <header> в html. Обязательно должен иметь аттрибут app -->
-		<v-app-bar app fixed dark dense class="elevation-8" style="background-color:#006699">
-			<v-img
-				src="img/logo-sks-white.png" class="mr-2" 
-				style="background-size:cover; background-position:center center; max-width:55px; height:auto">
-			</v-img>
+		<v-app-bar app fixed dark dense flat style="background-color:#069">
+			<v-container d-flex class="px-0">
+				<v-img
+					src="img/logo-sks-white.png" class="mr-2 my-auto"
+					max-width="53px" max-height="42px"
+					style="background-position:center center;">
+				</v-img>
 
-			<v-app-bar-title v-text="'SKSAVIA.RU'" class="text-body-1 mt-1"></v-app-bar-title>
+				<v-app-bar-title v-text="'SKSAVIA.RU'" class="text-body-1 my-auto"></v-app-bar-title>
 
-			<v-spacer></v-spacer>
-			
-			<v-btn
-				class="hidden-xs-only mr-3 py-0 elevation-20 rounded-xl"
-				style="background-color:#0075b0"
+				<v-spacer></v-spacer>
 				
-				v-for="item in menuItems"
-				:href="item.adress"
-				:key="item.index"
-			>
-				{{ item.title }}
-			</v-btn>
-			
-			<v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up">
-			</v-app-bar-nav-icon>
+				<v-btn
+					class="hidden-xs-only ml-3 py-0 elevation-2 rounded-xl"
+					style="background-color:#0075b0"
+					
+					v-for="item in menuItems"
+					:href="item.adress"
+					:key="item.index"
+				>
+					{{ item.title }}
+				</v-btn>
+				
+				<v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up">
+				</v-app-bar-nav-icon>
+			</v-container>
 		</v-app-bar>
 
 		<v-navigation-drawer
 			v-model="drawer" temporary fixed width=auto
 		>
 			<v-list nav dense>
-				<v-list-item-group v-model="group" active-class="text--accent-4">
+				<v-list-item-group v-model="group">
 					<v-list-item v-for="item in menuItems" :key="item.index" :href="item.adress">
-						<v-btn color="primary" elevation="6" x-large class="my-1">
+						<v-btn style="background-color:#069"
+						elevation="6" x-large class="white--text my-1 rounded-lg">
 							<v-list-item-title>
 								{{ item.title }}
 							</v-list-item-title>

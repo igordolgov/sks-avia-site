@@ -1,8 +1,8 @@
 <template> <!-- Разметка. Что и как отображать на странице -->
 	<v-app>
-		<AppHeader />
+		<AppHeader /> <!-- Подключаем компонент AppHeader ("шапка" сайта) -->
 
-		<v-main class="grey darken-3">
+		<v-main class="grey lighten-1"> <!-- v-main - аналог тега main в html -->
 			<v-container>
 				<!-- "component" - специальный тег во Vue.js, который позволяет отображать
 				любой компонент динамически (в свойстве ":is" передаём название компонента).
@@ -18,12 +18,13 @@
 </template>
 
 <script>
+// Импортируем компоненты (страницы) для возможности использования в текущем компоненте.
+// Символ "@" означает "путь до папки 'src'"
 
 // Импортируем "Глобальную шину"
 import eventBus from '@/eventBus';
-// Импортируем компоненты (страницы) для возможности использования в текущем компоненте.
-// Символ "@" означает "путь до папки 'src'"
-import MainPage from "@/pages/MainPage" // Главная страница. С неё запускается сайт
+
+import MainPage from "@/pages/MainPage" //
 import AppHeader from "@/components/AppHeader"
 import MainLayout from "@/pages/MainLayout"
 import Tab1_Cards from "@/components/Tab1_Cards" // Карточка товара из 1-й вкладки
@@ -95,10 +96,5 @@ export default {
 </script>
 
 <style scoped>
-	/* .bg-main { */
-		/* background-color: rgb(61, 65, 71); */
-		/* background-image: url("https://igordolgov.github.io/sks/img/background-main.jpg"); */
-		/* background-size: cover;
-		background-repeat: no-repeat; */
-	/* } */
+
 </style>
