@@ -2,7 +2,7 @@
   motors: [ // МОТОРЫ
     {
       id: 0,
-      title: 'Magnum 46 XLS с глушителем и третья строка',
+      title: 'Magnum 46 XLS с глушителем',
       condition: 'Новый',
       description: 'Продается все, что на фото; без упаковки',
       price: 4000,

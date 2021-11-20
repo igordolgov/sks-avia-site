@@ -30,7 +30,7 @@ import MainLayout from "@/pages/MainLayout"
 import Tab1_Cards from "@/components/Tab1_Cards" // Карточка товара из 1-й вкладки
 import Tab2_Cards from "@/components/Tab2_Cards" // Карточка товара из 2-й вкладки
 import Tab3_Cards from "@/components/Tab3_Cards" // Карточка товара из 2-й вкладки
-import Products_Tab1 from "@/components/Products_Tab1" // Список всех товаров 1-й вкладки
+import product1 from "@/components/Products_Tab1" // Список всех товаров 1-й вкладки
 import Products_Tab2 from "@/components/Products_Tab2" // Список всех товаров 2-й вкладки
 import Products_Tab3 from "@/components/Products_Tab3" // Список всех товаров 2-й вкладки
 import NotFoundPage from "@/pages/NotFoundPage" // Страница ошибки (если страница не найдена)
@@ -60,7 +60,7 @@ export default {
 		Tab2_Cards, 
 		Tab3_Cards, 
 		NotFoundPage, 
-		Products_Tab1, 
+		// Products_Tab1, 
 		Products_Tab2, 
 		Products_Tab3 
 	},
@@ -90,7 +90,16 @@ export default {
 		// от выбранной страницы (в списке "routes"), иначе возвращает 'NotFoundPage'
 		currentPageComponent() {
 			return routes[this.currentPage] || 'NotFoundPage';
-		}
+		},
+		product() { // Информация о просматриваемом продукте
+			return product1.find((product) => product.id === +this.$route.params.id);
+		// В списке товаров находим товар, у которого идентификатор
+		// совпадает с идентификатором, переданным через входные параметры
+		},
+		// category() {
+			// return categories.find((category) => category.id === this.product.categoryId);
+		// аналогично для категории (для отображения категории на карточке товара)
+		// },
 	},
 };
 </script>
