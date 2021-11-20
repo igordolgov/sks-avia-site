@@ -34,7 +34,7 @@
 					class="pl-3"
 				>
 					<v-card
-						height="320px"
+						height="300px"
 						class="cards-height
 						pa-sm-3 
 						d-flex align-center

@@ -34,8 +34,8 @@
 					class="pl-3"
 				>
 					<v-card
-						class="
-						cards-height
+						height="300px"
+						class="cards-height
 						pa-sm-3 
 						d-flex align-center
 						grey lighten-3 rounded-lg elevation-10
