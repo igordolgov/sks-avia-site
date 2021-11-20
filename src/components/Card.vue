@@ -1,51 +1,112 @@
 <template>
-	<v-container>
-		<v-row>
-			<v-col cols="12">
-				<v-card align="center" class="ma-0 elevation-16 rounded-lg">
-					<v-card-title dark class="grey darken-2 white--text py-1">
-						<span class="mx-auto">{{ product.title }}</span>
-					</v-card-title>
+	<v-row>
+		<!-- Фотографии товара -->
+		<v-col
+			cols="12" sm="8" lg="7" offset-lg="1" 
+			class="pl-3"
+		>
+			<v-card
+				class="
+				cards-height
+				pa-sm-3 
+				d-flex align-center
+				grey lighten-3 rounded-lg elevation-10
+			">
+				<v-carousel
+					height="100%"
+					dark
+					hide-delimiter-background
+					delimiter-icon="mdi-minus"
+					class="pt-sm-0 pb-sm-0
+				">
+					<v-carousel-item
+						v-for="(image,i) in product.images"
+						:key="i"
+						:src="image.src"
+						contain
+						eager
+					></v-carousel-item>
+				</v-carousel>
+			</v-card>
+		</v-col>
 
-					<v-card-text class="pa-0">
-						<span class="font-weight-black text-h6 text-uppercase red--text">
-						{{ product.condition }}
-						<span class="font-weight-bold text-subtitle-1"></span>
-						</span>
+		<!-- Описание товара -->
+		<v-col
+			cols="12" sm="4" lg="3"
+			class="pb-0 pb-sm-3 pr-sm-3 pr-lg-0 pl-sm-0 "
+		>
+			<v-card
+				height="100%"
+				class="pa-2 elevation-10 rounded-lg">
+				<!-- Название товара -->
+				<span
+					class="
+						d-block
+						pt-1 px-2 pb-0
+						font-weight-bold
+						text-body-2 text-md-body-1"
+				>
+					{{ product.title }}
+				</span>
 
-						<span class="font-weight-bold text-h5 black--text">
-						- Цена: {{ product.price }}
-						<span class="font-weight-bold text-subtitle-1">₽</span>
-						</span>
-					</v-card-text>
+				<!-- Описание товара -->
+				<span
+					d-block
+					class="
+						d-block
+						pl-2 pb-0 mb-0
+						text-body-2 text-md-body-1"
+				>
+					{{ product.description }}
+				</span>
 
-					<v-card-text
+				<div class="text-body-2 pa-0">
+					<!-- Количество товара -->
+					<span
+						v-if="product.quantity > 0"
 						class="
-						grey
-						darken-3
-						text-subtitle-1
-						font-weight-light
-						white--text
-						py-0
-						"
+							d-block 
+							pl-2 pb-0 mb-0 
+							text-md-body-1"
 					>
-						{{ product.description }}
-					</v-card-text>
+						Кол-во: {{ product.quantity }} шт.
+					</span>
 
-					<v-img :src="product.image1" contain class="card-img"></v-img>
-					<v-img :src="product.image2" contain class="card-img"></v-img>
-					<v-img :src="product.image3" contain class="card-img"></v-img>
-					<v-img :src="product.image4" contain class="card-img"></v-img>
-					<v-img :src="product.image5" contain class="card-img"></v-img>
-					<v-img :src="product.image6" contain class="card-img"></v-img>
-					<v-img :src="product.image7" contain class="card-img"></v-img>
-					<v-img :src="product.image8" contain class="card-img"></v-img>
-					<v-img :src="product.image9" contain class="card-img"></v-img>
-					<v-img :src="product.image10" contain class="card-img"></v-img>
-				</v-card>
-			</v-col>
-		</v-row>
-	</v-container>
+					<!-- Если товара нет в наличии (кол-во: 0) -->
+					<span
+						v-if="product.quantity == 0"
+						class="
+							width-50px
+							pl-2 pb-0 mb-0
+							red--text
+							text-md-body-1"
+					>
+						Нет в наличии
+					</span>
+
+					<!-- Состояние товара (новый или б/у) -->
+					<span
+							class="
+							d-block
+							pl-2 pb-0 mb-0 
+							text-md-body-1"
+					>
+						{{ product.condition }}
+					</span>
+
+					<!-- Стоимость товара -->
+					<span
+							class="
+							d-block
+							pl-2 pb-1 mb-0 
+							text-md-body-1"
+					>
+						Цена: {{ product.price }} ₽
+					</span>
+				</div>
+			</v-card>
+		</v-col>
+	</v-row>
 </template>
 
 <script>

@@ -9,11 +9,7 @@
 				md="3" - на ноутбуках ширина карточки 3 из 12
 				sm - планшет, md - ноутбук, md - настольный, lg - широкий экран -->
 					<v-col
-					cols="12"
-					sm="4"
-					md="3"
-					lg="3"
-					xl="3"
+					cols="12" sm="4" md="3" lg="3" xl="3"
 					class="pa-1"
 					v-for="product in products"
 					:key="product.id"
@@ -36,7 +32,7 @@
 							contain
 							position="center"
 							aspect-ratio="1"
-							:src="product.image1"
+							:src="product.images[0]"
 							></v-img>
 						</v-card>
 

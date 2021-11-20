@@ -15,7 +15,7 @@ Vue.use(VueRouter); // Сообщаем Vue, что будем использо�
 const routes = [
 	// Создаём маршруты (в виде объектов)
 	{
-		path: "/",
+		path: "/sks-avia/",
 		name: "main",
 		component: MainPage,
 	},

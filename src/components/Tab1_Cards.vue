@@ -41,6 +41,7 @@
 						grey lighten-3 rounded-lg elevation-10
 					">
 						<v-carousel
+							height="100%"
 							dark
 							hide-delimiter-background
 							delimiter-icon="mdi-minus"
@@ -60,9 +61,10 @@
 				<!-- Описание товара -->
 				<v-col
 					cols="12" sm="4" lg="3"
-					class="pb-0 pb-sm-3 pr-sm-3 pr-lg-0 pl-sm-0 "
+					class="py-0 pt-sm-3 pb-sm-3 pr-sm-3 pr-lg-0 pl-sm-0"
 				>
 					<v-card
+						height="100%"
 						class="pa-2 elevation-10 rounded-lg">
 						<!-- Название товара -->
 						<span
@@ -210,11 +212,6 @@ export default {
 		.cards-height {
 			height: 89vh !important;
 		}
-
-		/* .v-carousel__controls { */
-			/* background-color: rgb(100, 96, 96) !important; */
-			/* margin-bottom: -40px; */
-		/* } */
 	}
 
 	@media (max-width: 640px) {
@@ -223,9 +220,9 @@ export default {
 		}
 	}
 
-	/* @media (max-width: 360px) {
+	@media (max-width: 360px) {
 		.cards-height {
-			height: 92vw !important;
+			height: 60vh !important;
 		}
-	} */
+	}
 </style>
