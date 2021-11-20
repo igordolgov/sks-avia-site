@@ -22,7 +22,7 @@
 								contain
 								width="auto"
 								max-height="127px"
-								:src="product.image1"
+								:src="product.images.src[0]"
 							></v-img>
 
 							<v-card-title class="pt-2 pb-0 px-2 d-inline-block">

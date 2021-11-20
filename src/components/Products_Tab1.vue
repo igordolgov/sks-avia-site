@@ -35,7 +35,7 @@
 								contain
 								position="center"
 								aspect-ratio="1"
-								:src="product.image1"
+								:src="product.images[0]"
 							></v-img>
 						</v-card>
 

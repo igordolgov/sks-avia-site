@@ -30,92 +30,28 @@
 			<v-row>
 				<!-- Фотографии товара -->
 				<v-col
-					cols="12" sm="8" lg="9" 
-					class="pl-3 pb-0 pb-sm-3 px-sm-0"
+					cols="12" sm="8" lg="7" offset-lg="1" 
+					class="pl-3"
 				>
-					<v-card class="pt-lg-3 grey lighten-3 rounded-lg elevation-10">
+					<v-card
+						class="
+						cards-height
+						pa-sm-3 
+						d-flex align-center
+						grey lighten-3 rounded-lg elevation-10
+					">
 						<v-carousel
 							dark
 							hide-delimiter-background
-							delimiter-icon="mdi-minus" 
-						>
+							delimiter-icon="mdi-minus"
+							class="pt-sm-0 pb-sm-0
+						">
 							<v-carousel-item
-								v-if="product.image1"
-								:src="product.image1"
+								v-for="(image,i) in product.images"
+								:key="i"
+								:src="image.src"
 								contain
 								eager
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image2"
-								:src="product.image2"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image3"
-								:src="product.image3"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image4"
-								:src="product.image4"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image5"
-								:src="product.image5"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image6"
-								:src="product.image6"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-							
-							<v-carousel-item
-								v-if="product.image7"
-								:src="product.image7"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image8"
-								:src="product.image8"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image9"
-								:src="product.image9"
-								contain
-								eager
-								max-height="80vh"
-							></v-carousel-item>
-
-							<v-carousel-item
-								v-if="product.image10"
-								:src="product.image10"
-								contain
-								eager
-								max-height="80vh"
 							></v-carousel-item>
 						</v-carousel>
 					</v-card>
@@ -124,13 +60,12 @@
 				<!-- Описание товара -->
 				<v-col
 					cols="12" sm="4" lg="3"
-					class="pb-0 pb-sm-3 pr-sm-0"
+					class="pb-0 pb-sm-3 pr-sm-3 pr-lg-0 pl-sm-0 "
 				>
 					<v-card
-						class="pa-2 fill-height elevation-10 rounded-lg">
+						class="pa-2 elevation-10 rounded-lg">
 						<!-- Название товара -->
-						<v-card
-							flat
+						<span
 							class="
 								d-block
 								pt-1 px-2 pb-0
@@ -138,61 +73,62 @@
 								text-body-2 text-md-body-1"
 						>
 							{{ product.title }}
-						</v-card>
+						</span>
 
 						<!-- Описание товара -->
-						<v-card
-							flat 
+						<span
+							d-block
 							class="
+								d-block
 								pl-2 pb-0 mb-0
 								text-body-2 text-md-body-1"
 						>
 							{{ product.description }}
-						</v-card>
+						</span>
 
-						<div class="text-body-1 pa-0">
+						<div class="text-body-2 pa-0">
 							<!-- Количество товара -->
-							<v-card
-								flat
+							<span
 								v-if="product.quantity > 0"
 								class="
 									d-block 
 									pl-2 pb-0 mb-0 
-									text-body-2 text-md-body-1"
+									text-md-body-1"
 							>
 								Кол-во: {{ product.quantity }} шт.
-							</v-card>
+							</span>
 
 							<!-- Если товара нет в наличии (кол-во: 0) -->
-							<v-card
-								flat
+							<span
 								v-if="product.quantity == 0"
 								class="
 									width-50px
 									pl-2 pb-0 mb-0
 									red--text
-									text-body-2 text-md-body-1"
+									text-md-body-1"
 							>
 								Нет в наличии
-							</v-card>
+							</span>
 
 							<!-- Состояние товара (новый или б/у) -->
-							<v-card
-								flat class="
+							<span
+									class="
+									d-block
 									pl-2 pb-0 mb-0 
-									text-body-2 text-md-body-1"
+									text-md-body-1"
 							>
 								{{ product.condition }}
-							</v-card>
+							</span>
 
 							<!-- Стоимость товара -->
-							<v-card
-								flat class="
+							<span
+									class="
+									d-block
 									pl-2 pb-1 mb-0 
-									text-body-2 text-md-body-1"
+									text-md-body-1"
 							>
 								Цена: {{ product.price }} ₽
-							</v-card>
+							</span>
 						</div>
 					</v-card>
 				</v-col>
@@ -269,22 +205,27 @@ export default {
 	.mdi-minus {
 		color: black !important;
 	}
-/* 
+
 	@media (min-width: 900px) {
 		.cards-height {
-			height: 100vh;
+			height: 89vh !important;
 		}
+
+		/* .v-carousel__controls { */
+			/* background-color: rgb(100, 96, 96) !important; */
+			/* margin-bottom: -40px; */
+		/* } */
 	}
 
 	@media (max-width: 640px) {
 		.cards-height {
-			height: 70vh;
+			height: 80vh !important;
 		}
 	}
 
-	@media (max-width: 360px) {
+	/* @media (max-width: 360px) {
 		.cards-height {
-			max-height: 70vh;
+			height: 92vw !important;
 		}
 	} */
 </style>
