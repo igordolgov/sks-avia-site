@@ -34,8 +34,8 @@
 					class="pl-3"
 				>
 					<v-card
-						class="
-						cards-height
+						height="320px"
+						class="cards-height
 						pa-sm-3 
 						d-flex align-center
 						grey lighten-3 rounded-lg elevation-10
@@ -148,7 +148,7 @@ import categories from "@/data/categories.js";
 // import eventBus from '@/eventBus';
 
 export default {
-  name: "Tab3_Cards",
+  name: "Tab1_Cards",
 
   props: ["pageParams"],
 
@@ -215,14 +215,14 @@ export default {
 	}
 
 	@media (max-width: 640px) {
-		.cards-height {
-			height: 80vh !important;
-		}
+		/* card {
+			height: 100px !important;
+		} */
 	}
 
 	@media (max-width: 360px) {
-		.cards-height {
-			height: 60vh !important;
-		}
+		/* card {
+			max-height: 320px !important;
+		} */
 	}
 </style>

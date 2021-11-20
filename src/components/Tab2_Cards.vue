@@ -148,7 +148,7 @@ import categories from "@/data/categories.js";
 // import eventBus from '@/eventBus';
 
 export default {
-  name: "Tab3_Cards",
+  name: "Tab2_Cards",
 
   props: ["pageParams"],
 

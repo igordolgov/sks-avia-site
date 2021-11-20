@@ -20,7 +20,7 @@
 				
 				<v-btn
 					:to="tab.route" block
-					v-for='tab in tabs' :key='tab'
+					v-for='tab in tabs' :key='tab.route'
 					class='font-weight-bold text-caption
 					text-sm-body-2 rounded-lg pa-2 mb-2 elevation-6'
 					active-class='light-blue darken-4 white--text elevation-6'
