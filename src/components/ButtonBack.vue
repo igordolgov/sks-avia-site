@@ -4,9 +4,9 @@
 		<v-btn
 			href="/"
 			@click.prevent="gotoPage('main')"
-			color="red accent-4"
+			style="background-color: #069"
 			dark
-			class="rounded-xl elevation-10"
+			class="mx-2 my-1 rounded-lg elevation-8"
 		>
 			Назад
 		</v-btn>
@@ -41,7 +41,7 @@ export default {
 	.button-styles {
 		position: fixed;
 		z-index: 5;
-		bottom: 85px !important;
-		right: 15px;
+		bottom: 9vh !important;
+		right: 12px;
 	}
 </style>

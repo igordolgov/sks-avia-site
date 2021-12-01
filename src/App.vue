@@ -35,8 +35,8 @@ import Products_Tab2 from "@/components/Products_Tab2" // Список всех 
 import Products_Tab3 from "@/components/Products_Tab3" // Список всех товаров 2-й вкладки
 import NotFoundPage from "@/pages/NotFoundPage" // Страница ошибки (если страница не найдена)
 
-// Маршруты до страниц. Это объект, где ключ - название страницы, значение - компонент,
-// который должен отобразиться при переходе на эту страницу
+/* Маршруты до страниц. Это объект, где ключ - название страницы, значение - компонент,
+который должен отобразиться при переходе на эту страницу */
 const routes = {
 	main: 'MainLayout',
 	product1: 'Tab1_Cards',
@@ -67,8 +67,8 @@ export default {
 
 	data() { // СОСТОЯНИЕ
 		return {
-			// Свойство (переменная) для хранения текущей страницы,
-			// по умолчанию - главная страница (main)
+			/* Свойство (переменная) для хранения текущей страницы,
+			по умолчанию - главная страница (main) */
 			currentPage: 'main',
 			// Хранилище параметров страницы
 			currentPageParams: {},
@@ -86,15 +86,15 @@ export default {
 		eventBus.$on('gotoPage', (pageName, pageParams) => this.gotoPage(pageName, pageParams))
 	},
 	computed: {
-		// Вычисляемое свойство, которое возвращает название компонента в зависимости
-		// от выбранной страницы (в списке "routes"), иначе возвращает 'NotFoundPage'
+		/* Вычисляемое свойство, которое возвращает название компонента в зависимости
+		от выбранной страницы (в списке "routes"), иначе возвращает 'NotFoundPage' */
 		currentPageComponent() {
 			return routes[this.currentPage] || 'NotFoundPage';
 		},
-		product() { // Информация о просматриваемом продукте
+		product() { // Информация о просматриваемом товаре
 			return product1.find((product) => product.id === +this.$route.params.id);
-		// В списке товаров находим товар, у которого идентификатор
-		// совпадает с идентификатором, переданным через входные параметры
+		/* В списке товаров находим товар, у которого идентификатор
+		совпадает с идентификатором, переданным через входные параметры */
 		},
 		// category() {
 			// return categories.find((category) => category.id === this.product.categoryId);

@@ -1,9 +1,9 @@
 <!-- Карточка товара из 2-й вкладки -->
 <template>
 	<div>
-		<ButtonBack />
+		
 
-		<v-container class="pa-0">
+		<div class="pa-0">
 			<!-- Меню навигации. "Хлебные крошки" -->
 			<!-- <v-row>
 				<v-col class="pb-0">
@@ -27,25 +27,29 @@
 				</v-col>
 			</v-row> -->
 
-			<v-row>
+			<v-row
+				class="pb-0"
+				justify="center"
+			>
+
 				<!-- Фотографии товара -->
 				<v-col
-					cols="12" sm="8" lg="7" offset-lg="1" 
-					class="pl-3"
+					cols="12" sm="7" md="9" lg="7" xl="7"
+					class="pa-0 mb-3"
 				>
-					<v-card
-						height="300px"
+					<v-sheet
 						class="cards-height
-						pa-sm-3 
+						pa-0 mx-auto
 						d-flex align-center
-						grey lighten-3 rounded-lg elevation-10
+						grey lighten-2 elevation-10
 					">
 						<v-carousel
+                            v-model="model"
 							height="100%"
-							dark
-							hide-delimiter-background
-							delimiter-icon="mdi-minus"
-							class="pt-sm-0 pb-sm-0
+							:aspect-ratio="1"
+							light
+							hide-delimiters
+							class="pa-0
 						">
 							<v-carousel-item
 								v-for="(image,i) in product.images"
@@ -53,19 +57,23 @@
 								:src="image.src"
 								contain
 								eager
-							></v-carousel-item>
+								height="100%"
+								:aspect-ratio="1"
+							>
+							</v-carousel-item>
 						</v-carousel>
-					</v-card>
+					</v-sheet>
 				</v-col>
 
 				<!-- Описание товара -->
 				<v-col
-					cols="12" sm="4" lg="3"
-					class="py-0 pt-sm-3 pb-sm-3 pr-sm-3 pr-lg-0 pl-sm-0"
+					col="12" sm="3" md="2" xl="2"
+					class="py-0 px-sm-0 pb-sm-3 pr-lg-0 mx-sm-0"
 				>
-					<v-card
-						height="100%"
-						class="pa-2 elevation-10 rounded-lg">
+					<v-sheet
+						class="fill-height pa-2 mx-sm-auto
+						elevation-10 rounded-lg">
+
 						<!-- Название товара -->
 						<span
 							class="
@@ -79,7 +87,6 @@
 
 						<!-- Описание товара -->
 						<span
-							d-block
 							class="
 								d-block
 								pl-2 pb-0 mb-0
@@ -102,7 +109,7 @@
 
 							<!-- Если товара нет в наличии (кол-во: 0) -->
 							<span
-								v-if="product.quantity == 0"
+								v-if="product.quantity === 0 || product.quantity === ''"
 								class="
 									width-50px
 									pl-2 pb-0 mb-0
@@ -114,7 +121,7 @@
 
 							<!-- Состояние товара (новый или б/у) -->
 							<span
-									class="
+								class="
 									d-block
 									pl-2 pb-0 mb-0 
 									text-md-body-1"
@@ -124,18 +131,19 @@
 
 							<!-- Стоимость товара -->
 							<span
-									class="
+								class="
 									d-block
 									pl-2 pb-1 mb-0 
 									text-md-body-1"
 							>
 								Цена: {{ product.price }} ₽
 							</span>
+					<ButtonBack />
 						</div>
-					</v-card>
+					</v-sheet>
 				</v-col>
 			</v-row>
-		</v-container>
+		</div>
 	</div>
 </template>
 
@@ -148,15 +156,16 @@ import categories from "@/data/categories.js";
 // import eventBus from '@/eventBus';
 
 export default {
-  name: "Tab2_Cards",
+  name: "Tab1_Cards",
 
   props: ["pageParams"],
 
   components: {
     ButtonBack,
   },
-
+  
   data: () => ({
+    model: 0,
     products: products,
     categories: categories,
 	items: [
@@ -166,14 +175,14 @@ export default {
           href: '/',
         },
         {
-          text: 'Пропеллеры',
+          text: 'Моторы',
           disabled: false,
-          href: '/propellers',
+          href: '/motors',
         },
         {
           text: ' ',
           disabled: true,
-          href: '/product2',
+          href: '/product1',
         },
       ],
   }),
@@ -199,30 +208,5 @@ export default {
 </script>
 
 <style>
-	.mdi-chevron-right,
-	.mdi-chevron-left {
-		color: white !important;
-	}
 
-	.mdi-minus {
-		color: black !important;
-	}
-
-	@media (min-width: 900px) {
-		.cards-height {
-			min-height: 78.4vh;
-		}
-	}
-
-	@media (max-width: 640px) {
-		.cards-height {
-			height: 90vh;
-		}
-	}
-
-	@media (max-width: 360px) {
-		.cards-height {
-			max-height: 60vh;
-		}
-	}
 </style>

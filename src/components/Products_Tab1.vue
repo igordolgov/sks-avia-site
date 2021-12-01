@@ -1,13 +1,13 @@
 ﻿<!-- Список товаров 1-й вкладки -->
 <template>
   <!-- Карточка в каталоге -->
-	<v-card>
+	<v-card height="93vh" class="rounded-0 elevation-0">
 		<!-- "pa" - paddings, "ma" - margins, "pl" - padding-left, "mb" - margin-bottom... -->
 		<v-card-text
 			class="pa-3 text-body-2" 
 			style="line-height:1.2"
 		>
-			<v-row class="tab-height background-size:contain">
+			<v-row>
 				<!-- cols=="8" означает - по умолчанию список занимает 8 из 12
 				md="3" - на ноутбуках ширина карточки 3 из 12
 				sm - планшет, md - ноутбук, md - настольный, lg - широкий экран -->
@@ -61,7 +61,7 @@
 						<!-- Если товара нет в наличии (кол-во: 0) -->
 						<v-card
 							flat
-							v-if="product.quantity == 0"
+							v-if="product.quantity === 0 || product.quantity === ''"
 							class="red--text pb-0 mb-0"
 						>
 							Нет в наличии
@@ -112,7 +112,7 @@ export default {
 
 <style>
 	.tab-height {
-		min-height: 93vh;
+		height: 93.9vh;
 		align-content: flex-start;
 	}
 </style>

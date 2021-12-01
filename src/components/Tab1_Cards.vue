@@ -1,9 +1,9 @@
 <!-- Карточка товара из 1-й вкладки -->
 <template>
 	<div>
-		<ButtonBack />
+		
 
-		<v-container class="pa-0">
+		<div class="pa-0">
 			<!-- Меню навигации. "Хлебные крошки" -->
 			<!-- <v-row>
 				<v-col class="pb-0">
@@ -27,25 +27,29 @@
 				</v-col>
 			</v-row> -->
 
-			<v-row>
+			<v-row
+				class="pb-0"
+				justify="center"
+			>
+
 				<!-- Фотографии товара -->
 				<v-col
-					cols="12" sm="8" lg="7" offset-lg="1" 
-					class="pl-3"
+					cols="12" sm="7" md="9" lg="7" xl="7"
+					class="pa-0 mb-3"
 				>
-					<v-card
-						height="300px"
+					<v-sheet
 						class="cards-height
-						pa-sm-3 
+						pa-0 mx-auto
 						d-flex align-center
-						grey lighten-3 rounded-lg elevation-10
+						grey lighten-2 elevation-10
 					">
 						<v-carousel
+                            v-model="model"
 							height="100%"
-							dark
-							hide-delimiter-background
-							delimiter-icon="mdi-minus"
-							class="pt-sm-0 pb-sm-0
+							:aspect-ratio="1"
+							light
+							hide-delimiters
+							class="pa-0
 						">
 							<v-carousel-item
 								v-for="(image,i) in product.images"
@@ -53,19 +57,23 @@
 								:src="image.src"
 								contain
 								eager
-							></v-carousel-item>
+								height="100%"
+								:aspect-ratio="1"
+							>
+							</v-carousel-item>
 						</v-carousel>
-					</v-card>
+					</v-sheet>
 				</v-col>
 
 				<!-- Описание товара -->
 				<v-col
-					cols="12" sm="4" lg="3"
-					class="py-0 pt-sm-3 pb-sm-3 pr-sm-3 pr-lg-0 pl-sm-0"
+					col="12" sm="3" md="2" xl="2"
+					class="py-0 px-sm-0 pb-sm-3 pr-lg-0 mx-sm-0"
 				>
-					<v-card
-						height="100%"
-						class="pa-2 elevation-10 rounded-lg">
+					<v-sheet
+						class="fill-height pa-2 mx-sm-auto
+						elevation-10 rounded-lg">
+
 						<!-- Название товара -->
 						<span
 							class="
@@ -79,7 +87,6 @@
 
 						<!-- Описание товара -->
 						<span
-							d-block
 							class="
 								d-block
 								pl-2 pb-0 mb-0
@@ -102,7 +109,7 @@
 
 							<!-- Если товара нет в наличии (кол-во: 0) -->
 							<span
-								v-if="product.quantity == 0"
+								v-if="product.quantity === 0 || product.quantity === ''"
 								class="
 									width-50px
 									pl-2 pb-0 mb-0
@@ -114,7 +121,7 @@
 
 							<!-- Состояние товара (новый или б/у) -->
 							<span
-									class="
+								class="
 									d-block
 									pl-2 pb-0 mb-0 
 									text-md-body-1"
@@ -124,18 +131,19 @@
 
 							<!-- Стоимость товара -->
 							<span
-									class="
+								class="
 									d-block
 									pl-2 pb-1 mb-0 
 									text-md-body-1"
 							>
 								Цена: {{ product.price }} ₽
+					<ButtonBack />
 							</span>
 						</div>
-					</v-card>
+					</v-sheet>
 				</v-col>
 			</v-row>
-		</v-container>
+		</div>
 	</div>
 </template>
 
@@ -155,8 +163,9 @@ export default {
   components: {
     ButtonBack,
   },
-
+  
   data: () => ({
+    model: 0,
     products: products,
     categories: categories,
 	items: [
@@ -199,6 +208,12 @@ export default {
 </script>
 
 <style>
+/* .v-carousel__controls {
+	transform: translateY(12px) !important;
+	padding-top: 12px !important;
+	padding-bottom: 12px !important;
+} */
+
 	.mdi-chevron-right,
 	.mdi-chevron-left {
 		color: white !important;
@@ -208,21 +223,79 @@ export default {
 		color: black !important;
 	}
 
-	@media (min-width: 900px) {
+	/* @media (min-width: 1800px) {
 		.cards-height {
-			height: 89vh !important;
+			height: 1000px !important;
+			width: 1000px !important;
+		}
+	} */
+
+	@media (min-width: 1900px) {
+		.cards-height {
+			height: 850px !important;
+			width: 850px !important;
 		}
 	}
 
-	@media (max-width: 640px) {
-		/* card {
-			height: 100px !important;
-		} */
+	@media (min-width: 1060px) and (max-width: 1920px) and (orientation: portrait) {
+		.cards-height {
+			height: 860px !important;
+			width: 860px !important;
+		}
 	}
 
-	@media (max-width: 360px) {
-		/* card {
-			max-height: 320px !important;
-		} */
+	@media (min-width: 1179px) and (max-width: 1920px) and (orientation: portrait) {
+		.cards-height {
+			height: 754px !important;
+			width: 754px !important;
+		}
+	}
+
+	@media (min-width: 1179px) and (max-width: 1919px) and (orientation: landscape) {
+		.cards-height {
+			height: 590px !important;
+			width: 590px !important;
+		}
+	}
+
+	@media (min-width: 1024px) and (max-width: 1180px) and (orientation: landscape) {
+		.cards-height {
+			height: 700px !important;
+			width: 700px !important;
+		}
+	}
+
+	@media (min-width: 640px) and (max-width: 1023px)  and (orientation: landscape) {
+		.cards-height {
+			height: 360px !important;
+			width: 360px !important;
+		}
+	}
+
+	@media (min-width: 640px) and (max-width: 900px) and (orientation: portrait) {
+		.cards-height { 
+			height: 416px !important;
+			width: 416px !important;
+		}
+	}
+
+	@media (min-width: 740px) and (max-width: 1023px) and (orientation: landscape) {
+		.cards-height { 
+			height: 300px !important;
+			width: 300px !important;
+		}
+	}
+
+	@media (min-width: 640px) and (max-width: 680px) and (orientation: landscape) {
+		.cards-height {
+			height: 290px !important;
+			width: 290px !important;
+		}
+	}
+
+	@media (max-width: 639px) and (orientation: portrait) {
+		.cards-height {
+			width: 100% !important;
+		}
 	}
 </style>
